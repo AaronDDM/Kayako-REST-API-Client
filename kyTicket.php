@@ -274,6 +274,12 @@ class kyTicket extends kyObjectBase {
 
 		$data['type'] = $this->creation_type;
 
+		// Aaron DM: Patch Begin:
+		$data['flag_type'] = $this->flag_type;
+		$data['next_reply_due'] = $this->next_reply_due;
+		$data['resolution_due'] = $this->resolution_due;
+		// Aaron DM: Patch End;
+
 		return $data;
 	}
 
@@ -406,6 +412,13 @@ class kyTicket extends kyObjectBase {
 	public function getFlagType() {
 		return $this->flag_type;
 	}
+
+	// Aaron DM: Begin Patch;
+	public function setFlagType($flagType) {
+		$this->flag_type = $flagType;
+		return $this;
+	}
+	// Aaron DM: End;
 
 	/**
 	 *
@@ -800,6 +813,14 @@ class kyTicket extends kyObjectBase {
 		return $this->next_reply_due;
 	}
 
+	// Aaron DM: Patch Begin;
+	public function setNextReplyDue($nextReplyDue) {
+		$this->next_reply_due;
+		return $this;
+	}
+	// Aaron DM: Patch End;
+
+
 	/**
 	 *
 	 * @return string
@@ -809,6 +830,13 @@ class kyTicket extends kyObjectBase {
 	public function getResolutionDue() {
 		return $this->resolution_due;
 	}
+
+	// Aaron DM: Patch Begin;
+	public function setResolutionDue($resolution_due) {
+		$this->resolution_due = $resolution_due;
+		return $this;
+	}
+	// Aaron DM: Patch End;
 
 	/**
 	 *

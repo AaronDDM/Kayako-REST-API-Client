@@ -478,4 +478,19 @@ class kyTicketNote extends kyObjectBase {
 
 		return $new_ticket_note;
 	}
+
+	// Aaron DM: Patch Begin;
+    // LEGACY DO NOT USE
+	static public function newNote($ticket, $contents, $creator, $forStaffUser = null, $noteColor = kyTicketNote::COLOR_YELLOW) {
+		$note = new kyTicketNote();
+		$note->setTicketId($ticket->getID());
+		$note->setContents($contents);
+		$note->setCreator($creator->getID());
+		if($forStaffUser != null && $forStaffUser instanceOf kyStaff) {
+			$note->setForStaff($forStaffUser);
+		}
+		$note->setNoteColor($noteColor);
+		return $note;
+	}
+	// Aaron DM: Patch End;
 }
